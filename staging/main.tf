@@ -48,6 +48,8 @@ resource "google_compute_instance" "second" {
 
 }
 
+# removed
+
 
 
 
