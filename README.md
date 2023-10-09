@@ -1,0 +1,1 @@
+Remember to a ./credentials/servicekey.json from the current directory
