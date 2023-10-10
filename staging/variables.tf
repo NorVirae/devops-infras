@@ -19,11 +19,11 @@ variable "image" {
 }
 
 variable "path" {
-    default = "/home/vyra/Documents/devops/terraform/credentials"
+  default = "/home/vyra/Documents/devops/terraform/credentials"
 }
 
 variable "project" {
-  default = "helpful-surge-401108"
+  default = "blackhards"
 }
 
 variable "region" {

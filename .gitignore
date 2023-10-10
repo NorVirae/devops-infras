@@ -1,2 +1,4 @@
 credentials
 servicekey.json
+.terraform
+.terraform.lock.hcl
