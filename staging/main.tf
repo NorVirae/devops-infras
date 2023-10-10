@@ -7,7 +7,7 @@ resource "google_compute_instance" "default" {
   can_ip_forward = "false"
   description = "This is our Virtual Machine"
 
-  tags = [ "allow-http" ]
+  tags = [ "allow-http", "allow-https" ]
 
   boot_disk {
     initialize_params {
@@ -37,6 +37,23 @@ resource "google_compute_instance" "default" {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
   }
 
+
+
+}
+
+
+resource "google_compute_disk" "default" {
+  name = "extra"
+  type = "pd-ssd"
+  zone = "europe-west4-a"
+  size = "10"
+}
+
+
+resource "google_compute_attached_disk" "default" {
+  disk = google_compute_disk.default.self_link
+  instance = google_compute_instance.default[0].self_link
+  zone = "europe-west4-a"
 }
 
 
@@ -45,15 +62,15 @@ resource "google_compute_instance" "default" {
 # Outputs
 
 output "machine_type" {
-  value = google_compute_instance.default.machine_type
+  value = google_compute_instance.default.*.machine_type
 }
 
 output "name" {
-  value = google_compute_instance.default.name
+  value = google_compute_instance.default.*.name
 }
 
 output "zone" {
-  value = google_compute_instance.default.zone
+  value = google_compute_instance.default.*.zone
 }
 
 # output "instance_id" {
