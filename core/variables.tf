@@ -36,6 +36,6 @@ variable "region" {
 
 
 variable "name_count" {
-  default = ["core01", "core02", "core03", "core04"]
+  default = ["core01", "core02", "core03"]
   
 }
