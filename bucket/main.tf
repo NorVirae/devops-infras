@@ -6,10 +6,10 @@ resource "google_storage_bucket" "bucket" {
   location = var.location
   storage_class = var.storage
 
-#   labels {
-#     name = "blackhards-test"
-#     location = "europe-west4"
-#   }
+  labels = {
+    name = "blackhards-test"
+    location = "europe-west4"
+  }
 
   versioning {
     enabled = true
