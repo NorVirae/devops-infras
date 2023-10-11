@@ -8,10 +8,10 @@ resource "google_storage_bucket" "bucket" {
 
   labels = {
     name = "blackhards-test"
-    location = "europe-west4"
+    location = var.location
   }
 
   versioning {
-    enabled = true
+    enabled = var.versioning
   }
 }

@@ -23,3 +23,7 @@ variable "path" {
 variable "region" {
   default = "europe-west4-a"
 }
+
+variable "versioning" {
+  default = true
+}

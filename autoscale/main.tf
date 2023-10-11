@@ -1,5 +1,9 @@
+locals {
+  name = "${var.path}- ${var.region}"
+}
+
 resource "google_compute_instance_template" "foobar" {
-  name           = "my-instance-template"
+  name           = local.name
   machine_type   = "e2-micro"
   can_ip_forward = false
 

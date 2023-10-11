@@ -7,6 +7,17 @@ module "bucket" {
   region = "europe-west1"
 }
 
+module "database" {
+  source = "../database"
+  replication_type = "ASYNCHRONOUS"
+  disk_size = 15
+  tier = "db-n1-standard-1"
+
+}
+
+module "subnets" {
+  source = "../subnet"
+}
 
 resource "google_compute_instance" "default" {
   count = length(var.name_count)
